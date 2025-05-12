@@ -69,7 +69,51 @@ include('includes/config.php');
 
     <!-- fetch data -->
     <div class="container">
+
+
         <section class="xolor">
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <?php 
+                $sql="SELECT * FROM tbltourpackages order by rand() limit 3" ;
+                $query = $dbh->prepare($sql);
+                $query->execute();
+                $result=$query->fetchAll(PDO::FETCH_OBJ);
+                if($query>rowCount>0){
+
+                    foreach ($result as $row) { ?> 
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <img src="<?php echo htmlentities($result->PackageImage); ?>"/>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <?php
+                        
+                        
+                            
+                    }
+                }   
+                ?> 
+
+   <!-- Indicators -->
+                
+            </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+
             <div class="package-list">
                 <br>
                 <h3>Featured Packages</h3>
@@ -102,7 +146,8 @@ include('includes/config.php');
                                         <?php echo htmlentities($result->PackagePrice); ?>
                                     </h5>
                                 </div>
-                                <a style="margin:0 20px 10px 20px;" href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId); ?>"
+                                <a style="margin:0 20px 10px 20px;"
+                                    href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId); ?>"
                                     class="btn btn-primary">Details</a>
 
                             </div>
