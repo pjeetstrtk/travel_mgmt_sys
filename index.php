@@ -40,6 +40,7 @@ include('includes/config.php');
 
     <!-- Other links... -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="D:\xampp\htdocs\travel_mgmt_sys\css\slider.css">
 
 
     <script src="js/bootstrap.min.js"></script>
@@ -61,59 +62,41 @@ include('includes/config.php');
 
 </head>
 
-<body>
+<>
+
     <?php include('includes/header.php'); ?>
     <div class="banner">
         <!-- Banner content... -->
     </div>
-
     <!-- fetch data -->
     <div class="container">
-
-
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="images/c1.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/c2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/c3.jpg" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
         <section class="xolor">
-
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <?php 
-                $sql="SELECT * FROM tbltourpackages order by rand() limit 3" ;
-                $query = $dbh->prepare($sql);
-                $query->execute();
-                $result=$query->fetchAll(PDO::FETCH_OBJ);
-                if($query>rowCount>0){
-
-                    foreach ($result as $row) { ?> 
-                    <div class="carousel-inner">
-                        <div class="item">
-                            <img src="<?php echo htmlentities($result->PackageImage); ?>"/>
-                        </div>
-                    </div>
-                    
-                    
-                    
-                    <?php
-                        
-                        
-                            
-                    }
-                }   
-                ?> 
-
-   <!-- Indicators -->
-                
-            </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-
-
             <div class="package-list">
                 <br>
                 <h3>Featured Packages</h3>
@@ -130,7 +113,6 @@ include('includes/config.php');
                                 <img class="card-img-top"
                                     src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage); ?>"
                                     alt="Package Image" style="max-height: 130px;" />
-
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <?php echo htmlentities($result->PackageName); ?>
@@ -141,7 +123,6 @@ include('includes/config.php');
                                     <p class="text-muted"><b>Location:</b>
                                         <?php echo htmlentities($result->PackageLocation); ?>
                                     </p>
-
                                     <h5>USD
                                         <?php echo htmlentities($result->PackagePrice); ?>
                                     </h5>
@@ -149,7 +130,6 @@ include('includes/config.php');
                                 <a style="margin:0 20px 10px 20px;"
                                     href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId); ?>"
                                     class="btn btn-primary">Details</a>
-
                             </div>
                         <?php }
                     } ?>
@@ -158,14 +138,12 @@ include('includes/config.php');
                 <div><a href="package-list.php" class="view-more">View More Packages</a></div>
                 <br>
         </section>
+
     </div>
+    <div class="parallax"></div>
     <div class="clearfix"></div>
     </div>
-
-
-
     <!-- strat service section -->
-
     <section id="service" class="our_services">
         <div class="container">
             <div class="row">
@@ -181,7 +159,6 @@ include('includes/config.php');
                     </div>
                 </div>
             </div>
-
             <div class="row justify-content-center text-center">
                 <div class="col-lg-4 col-sm-6 col-xs-12" data-aos="fade-up">
                     <a href="hotel_booking.php" class="service-link">
@@ -193,7 +170,6 @@ include('includes/config.php');
                         </div>
                     </a>
                 </div>
-
                 <div class="col-lg-4 col-sm-6 col-xs-12" data-aos="fade-up">
                     <a href="ticket_booking.php" class="service-link">
                         <div class="service">
@@ -204,7 +180,6 @@ include('includes/config.php');
                         </div>
                     </a>
                 </div>
-
                 <div class="col-lg-4 col-sm-6 col-xs-12" data-aos="fade-up">
                     <a href="tour_guide.php" class="service-link">
                         <div class="service">
@@ -219,7 +194,6 @@ include('includes/config.php');
         </div><!-- END CONTAINER -->
     </section>
     <!-- END SERVICES -->
-
     <?php include('includes/footer.php'); ?>
     <?php include('includes/signup.php'); ?>
     <?php include('includes/signin.php'); ?>

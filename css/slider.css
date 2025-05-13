@@ -1,0 +1,23 @@
+img{
+    border:5px red solid;
+    margin-top: 5px;
+    padding: 1%;
+    height: 260px;
+    width: 350px;
+
+
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("6.jpg");
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
